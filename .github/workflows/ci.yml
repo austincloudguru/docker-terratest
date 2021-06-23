@@ -1,9 +1,13 @@
 name: CI
 on:
   pull_request:
+    branches:
+      - main
   push:
     branches: 
       - main
+    tags:
+      - 'v*.*.*'
 
 jobs:
 
@@ -32,9 +36,7 @@ jobs:
             austincloud/terratest
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
             type=ref,event=branch
-            type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
@@ -54,4 +56,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
