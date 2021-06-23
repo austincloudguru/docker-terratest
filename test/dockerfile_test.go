@@ -7,7 +7,7 @@ import (
 )
 
 func TestDockerfile(t *testing.T) {
-    tag := "austincloudguru/terratest"
+    tag := "austincloud/terratest"
     tfVersion := "1.0.0"
     goVersion := "1.16"
 
@@ -24,5 +24,4 @@ func TestDockerfile(t *testing.T) {
     tfOpts := &docker.RunOptions{Command: []string{"terraform", "--version"}}
     tfOutput := docker.Run(t, tag, tfOpts)
     assert.Contains(t, tfOutput, tfVersion)
-
 }
