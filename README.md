@@ -1,7 +1,7 @@
 # docker-terratest
 [![CI](https://github.com/austincloudguru/docker-terratest/workflows/CI/badge.svg?event=push)](https://github.com/austincloudguru/docker-terratest/actions?query=workflow%3ACI)
 
-This repo containes a docker image used to test Terraform resources with Terratest.  
+This repo contains a docker image used to test Terraform resources with Terratest.  The container is run with the `user` terratest, uid = 1000 so that any terraform related files are not created as root.
 
 GoLang Version: 1.16.5
 Terraform Version: 1.0.0
@@ -18,7 +18,7 @@ Build the Docker Image:
 ```
 
 ## Usage:
-You will need to pass the terraform directory to the container as well as AWS credentials.
+You will need to pass the terraform directory to the container as well as AWS credentials. By default, the container assumes that tests are in the `test` directory.  If your tests are in a different directory, you can add the `-w /go/src/app/$TEST_DIR` to your docker command.
 
 __Running it with AWS environmental variables__
 ```bash
@@ -32,13 +32,11 @@ __Running it using AWS credential files__
 ```bash
 docker run --rm -it \
     -v $PWD:/go/src/app \
-    -v $(cd ~ && pwd)/.aws/credentials:/root/.aws/credentials \
-    -v $(cd ~ && pwd)/.aws/config:/root/.aws/config \
-    -e AWS_SHARED_CREDENTIALS_FILE=/root/.aws/credentials \
-    -e AWS_CONFIG_FILE=/root/.aws/credentials \
-    -e AWS_PROFILE=cdp-dev \
+    -v $(cd ~ && pwd)/.aws:/terratest/.aws \
+    -e AWS_PROFILE=dev \
     austincloud/terratest go test -v
 ```
+
 
 ## Authors
 Module is maintained by [Mark Honomichl](https://github.com/austincloudguru).
