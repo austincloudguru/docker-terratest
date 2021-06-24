@@ -37,7 +37,6 @@ jobs:
             austincloud/terratest
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=semver,pattern={{major}},enable=${{ !startsWith(github.ref, 'refs/tags/v0.') }}
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
 
