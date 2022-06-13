@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM golang:1.18
 LABEL maintainer="AustinCloudGuru"
 
 ARG tf_version=1.2.2
@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y gnupg software-properties-common curl \
     && chown -R ${uid}:${gid} $terratest_home \
     && groupadd -g ${gid} ${group} \
     && useradd -d "$terratest_home" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
-    
+
 USER ${user}
 
 WORKDIR $GOPATH/src/app/test/

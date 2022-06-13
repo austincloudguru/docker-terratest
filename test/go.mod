@@ -1,6 +1,6 @@
 module github.com/edsoncelio/terratest-docker
 
-go 1.16
+go 1.18
 
 require (
 	github.com/gruntwork-io/terratest v0.34.7
