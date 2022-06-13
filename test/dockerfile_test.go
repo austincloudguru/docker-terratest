@@ -9,7 +9,7 @@ import (
 func TestDockerfile(t *testing.T) {
     tag := "austincloud/terratest"
     tfVersion := "1.2.2"
-    goVersion := "1.16"
+    goVersion := "1.18"
 
     buildOptions := &docker.BuildOptions{
         Tags: []string{tag},
