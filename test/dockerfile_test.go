@@ -1,14 +1,15 @@
 package test
 
 import (
-        "testing"
-        "github.com/stretchr/testify/assert"
-        "github.com/gruntwork-io/terratest/modules/docker"
+	"testing"
+
+	"github.com/gruntwork-io/terratest/modules/docker"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDockerfile(t *testing.T) {
     tag := "austincloud/terratest"
-    tfVersion := "1.2.2"
+    tfVersion := "1.2.3"
     goVersion := "1.18"
 
     buildOptions := &docker.BuildOptions{
