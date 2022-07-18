@@ -1,7 +1,7 @@
 FROM golang:1.18
 LABEL maintainer="AustinCloudGuru"
 
-ARG tf_version=1.2.4
+ARG tf_version=1.2.5
 ARG uid=1000
 ARG gid=1000
 ARG user=terratest
