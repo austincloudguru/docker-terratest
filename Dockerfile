@@ -2,7 +2,7 @@ FROM golang:1.22
 LABEL maintainer="AustinCloudGuru"
 
 # Change was made to debian packages to include the revision.
-ARG tf_version=1.7.2-1
+ARG tf_version=1.7.3-1
 ARG uid=1000
 ARG gid=1000
 ARG user=terratest
