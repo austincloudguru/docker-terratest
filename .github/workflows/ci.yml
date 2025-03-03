@@ -22,7 +22,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: 1.18
+          go-version: 1.22
   
       - name: Run the Tests
         run: cd ./test; go test -v 
@@ -30,7 +30,7 @@ jobs:
       - name: Docker meta
         if: startsWith(github.ref, 'refs/tags/') 
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v5
         with:
           # list of Docker images to use as base name for tags
           images: |
@@ -56,7 +56,7 @@ jobs:
       - name: Build and push
         if: startsWith(github.ref, 'refs/tags/')
         id: docker_build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64
