@@ -10,8 +10,8 @@ import (
 func TestDockerfile(t *testing.T) {
     tag := "austincloud/terratest"
     // This still needs to be the actual version of terraform
-    tfVersion := "1.11.4"
-    goVersion := "1.22"
+    tfVersion := "1.12.0"
+    goVersion := "1.24"
 
     buildOptions := &docker.BuildOptions{
         Tags: []string{tag},
