@@ -3,7 +3,7 @@
 
 This repo contains a docker image used to test Terraform resources with Terratest.  The container is run with the `user` terratest, uid = 1000 so that any terraform related files are not created as root.
 
-Terraform Version: Same as the docker tag
+Terraform Version: Same as the docker tag  
 GoLang Version (1.12.x): 1.24  
 GoLang Version (1.5.x - 1.11.x): 1.22   
 GoLang Version (1.2.3 - 1.4.x): 1.18  
