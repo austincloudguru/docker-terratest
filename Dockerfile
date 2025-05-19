@@ -1,8 +1,8 @@
-FROM golang:1.22
+FROM golang:1.24
 LABEL maintainer="AustinCloudGuru"
 
 # Change was made to debian packages to include the revision.
-ARG tf_version=1.11.4-1
+ARG tf_version=1.12.0-1
 ARG uid=1000
 ARG gid=1000
 ARG user=terratest
